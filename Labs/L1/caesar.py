@@ -62,8 +62,13 @@ def caesar_decipher(S, n = 3):
 	return finale_str
 
 def caesar_bruteforce(S):
-	for i in range(0,26):
-		print caesar_decipher(S,i)
+	for i in range(1,26):
+		if(i<10):
+			s = "0%d:" % i
+		else:
+			s = "%d:" % i
+		s+=caesar_decipher(S,i)
+		print s
 
 parser = argparse.ArgumentParser(description='Encrypt or Decrypt using Caesar Cipher')
 parser.add_argument('text', help='The Plaintext or Ciphertext in question.')
