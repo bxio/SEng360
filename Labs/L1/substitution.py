@@ -5,9 +5,13 @@ preconditions
 	P: possibly empty string of A..Z
 	K: permutation of A..Z
 '''
+O = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 def substitution_encrypt(P,K):
-	pass # put your implementation here and REMOVE THIS LINE
-
+	ret = ''
+	for letter in P:
+		pos = O.index(letter)
+		ret += K[pos]
+	return ret
 '''
 purpose
 	decrypt C using substitution cipher with key K
@@ -16,8 +20,11 @@ preconditions
 	K: permutation of A..Z
 '''
 def substitution_decrypt(C,K):
-	pass # put your implementation here and REMOVE THIS LINE
-
+	ret = ''
+	for letter in C:
+		pos = K.index(letter)
+		ret += O[pos]
+	return ret
 
 # test
 #    ABCDEFGHIJKLMNOPQRSTUVWXYZ
