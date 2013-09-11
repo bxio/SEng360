@@ -85,30 +85,3 @@ elif args['decode']:
 else:
 	print "Bruteforcing %s:" % args['text']
 	print caesar_bruteforce(args['text'])
-
-
-
-
-'''
-# Encipher examples...
-print caesar_encipher("abcdefghijklmnopqrstuvwxyz", 1)
-print caesar_encipher("abcdefghijklmnopqrstuvwxyz", 2)
-print caesar_encipher("abcdefghijklmnopqrstuvwxyz")
-
-print caesar_encipher("v0id is me!", 1)
-print caesar_encipher("v0id is me!", 2)
-print caesar_encipher("v0id is me!")
-
-print "\n"
-
-# Decipher examples...
-print caesar_decipher("x0kf ku og!", 1)
-print caesar_decipher("x0kf ku og!", 2)
-print caesar_decipher("x0kf ku og!")
-
-print "\n"
-
-# Both...
-string = "x0kf ku og!"
-print caesar_bruteforce(string)
-'''
