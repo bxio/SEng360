@@ -5,7 +5,30 @@ import sys, argparse
 small = "abcdefghijklmnopqrstuvwxyz"
 big   = small.upper()
 size  = len(big)-1
+'''
+#Professor's Encrypt function
+def caesar_encrypt(P,K):
+	alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	C = ''
+	for p in P:
+		p_i = alphabet.index(p)
+		c_i = (p_i+K) % len(alphabet)
+		C += alphabet[c_i]
+	return C
 
+#Professor's Decrpyt function
+def caesar_decrypt(C,K):
+	alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	P = ''
+	for c in C:
+		c_i = alphabet.index(c)
+		if c_i >= K:
+			p_i = c_i-K
+		else:
+			p_i = c_i + len(alphabet) - K
+		P += alphabet[p_i]
+	return P
+'''
 def caesar_encipher(S, n = 3):
 	finale_str = ''
 	for c in S:
