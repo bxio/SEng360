@@ -1,3 +1,4 @@
+alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 '''
 purpose
 	encrypt P using Vernam cipher with key K
@@ -7,8 +8,13 @@ preconditions
 	len(P) <= len(K)
 '''
 def vernam_encrypt(P,K):
-	pass # put your implementation here and REMOVE THIS LINE
-
+	ret = ''
+	for letter in P:
+		pos = alpha.index(letter)
+		offset = K[P.index(letter)]
+		final = (pos + offset) % 26
+		ret += alpha[final]
+	return ret
 '''
 purpose
 	decrypt C using Vernam cipher with key K
@@ -57,3 +63,8 @@ preconditions
 '''
 def count_letters(S):
 	pass # put your implementation here and REMOVE THIS LINE
+
+#tests follow
+a = 'IMYR'
+b = [69,46,77,9]
+print vernam_encrypt(a,b)
