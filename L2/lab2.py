@@ -24,8 +24,14 @@ preconditions
 	len(C) <= len(K)
 '''
 def vernam_decrypt(C,N):
-	pass # put your implementation here and REMOVE THIS LINE
-
+	pass
+	# ret = ""
+	# for letter in C:
+	# 	pos = alpha.index(letter)
+	# 	offset = N[C.index(letter)]
+	# 	final = (pos - offset) % 26
+	# 	ret += alpha[final]
+	# return ret
 # -----------------------------------------------------------------------
 
 '''
@@ -37,7 +43,13 @@ preconditions
 	len(P) <= len(K)
 '''
 def book_encrypt(P,K):
-	pass # put your implementation here and REMOVE THIS LINE
+	ret = ""
+	for letter in P:
+		pos1 = alpha.index(letter)
+		pos2 = alpha.index(K[P.index(letter)])
+		final = (pos1 + pos2) % 26
+		ret += alpha[final]
+	return ret
 
 '''
 purpose
@@ -65,6 +77,6 @@ def count_letters(S):
 	pass # put your implementation here and REMOVE THIS LINE
 
 #tests follow
-a = 'IMYR'
-b = [69,46,77,9]
-print vernam_encrypt(a,b)
+a = 'NHD'
+b = 'SAI'
+print book_encrypt(a,b)
