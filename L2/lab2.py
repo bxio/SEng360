@@ -60,8 +60,7 @@ preconditions
 	len(C) <= len(K)
 '''
 def book_decrypt(C,N):
-	pass # put your implementation here and REMOVE THIS LINE
-
+	pass
 # -----------------------------------------------------------------------
 
 '''
@@ -74,9 +73,11 @@ preconditions
 	S is a string of A..Z
 '''
 def count_letters(S):
-	pass # put your implementation here and REMOVE THIS LINE
+	L = [0] * 26
+	for letter in S:
+		L[alpha.index(letter)] += 1
+	return L
 
 #tests follow
-a = 'NHD'
-b = 'SAI'
-print book_encrypt(a,b)
+a = 'ABCDEFGHIJAKLMNOPQRSTUVWXYZ'
+print count_letters(a)
