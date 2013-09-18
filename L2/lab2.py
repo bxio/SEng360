@@ -24,14 +24,13 @@ preconditions
 	len(C) <= len(K)
 '''
 def vernam_decrypt(C,N):
-	pass
-	# ret = ""
-	# for letter in C:
-	# 	pos = alpha.index(letter)
-	# 	offset = N[C.index(letter)]
-	# 	final = (pos - offset) % 26
-	# 	ret += alpha[final]
-	# return ret
+	ret = ""
+	for letter in C:
+		pos = alpha.index(letter)
+		offset = N[C.index(letter)]
+		final = (pos - offset) % 26
+		ret += alpha[final]
+	return ret
 # -----------------------------------------------------------------------
 
 '''
@@ -60,7 +59,13 @@ preconditions
 	len(C) <= len(K)
 '''
 def book_decrypt(C,N):
-	pass
+	ret = ""
+	for letter in C:
+		pos1 = alpha.index(letter)
+		pos2 = alpha.index(N[C.index(letter)])
+		final = (pos1 - pos2) % 26
+		ret += alpha[final]
+	return ret
 # -----------------------------------------------------------------------
 
 '''
@@ -79,5 +84,6 @@ def count_letters(S):
 	return L
 
 #tests follow
-a = 'ABCDEFGHIJAKLMNOPQRSTUVWXYZ'
-print count_letters(a)
+a = "ABCE"
+b = "GERT"
+print book_decrypt(book_encrypt(a,b),b)
