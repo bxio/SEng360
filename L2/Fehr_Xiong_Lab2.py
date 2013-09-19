@@ -81,4 +81,7 @@ def count_letters(S):
 		L[alpha.index(letter)] += 1
 	return L
 
-print count_letters("gurynlbhgjnfsbenybatgvzrabgfhpprffshyylcebiravananvepensg")
+a = "gurynlbhgjnfsbenybatgvzrabgfhpprffshyylcebiravananvepensg"
+b = "NYJNLFTBGBBGURECRBCYRFSHARENYFBGUREJVFRGURLJBAGTBGBLBHEF"
+print count_letters(b.upper())
+print "[a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z]"
