@@ -214,9 +214,13 @@ TESTS
 
 def test_cipher(NAME, PLAINTEXT, KEY, ENCRYPT, DECRYPT):
 	print "TESTING : " + NAME
+	print "Original Text: " + PLAINTEXT
+	print "Key: " + str(KEY)
 	cipher = ENCRYPT(PLAINTEXT, KEY)
-	print cipher
-	print DECRYPT(cipher,KEY)
+	print "Cipher Text: " + cipher
+	decrypted = DECRYPT(cipher,KEY)
+	print "Decrpyted Text: " + decrypted
+	#assert PLAINTEXT == decrypted, "Plaintext does not match decrypted text!!!"
 	print ""
 
 
