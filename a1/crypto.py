@@ -1,4 +1,46 @@
+import math
+
 alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+'''
+purpose
+	given an integer Index or character Index a shift
+	of Offset is computed
+preconditions
+	Index: Character [A-Z] or integer [0-25]
+	Offset: positive or negative integer
+'''
+def shift(Index, Offset):
+	L = ""
+	if Index is int:
+		L = alpha[(Index + Offset) % 26]
+	else:
+		L = alpha[((alpha.index(Index) + Offset) % 26)]
+	return L
+
+'''
+purpose
+	given an integer Index or character Index a right shift
+	of Offset is computed
+preconditions
+	Index: Character [A-Z] or integer [0-25]
+	Offset: positive or negative integer
+'''
+def rightShift(Index, Offset):
+	return shift(Index, int(math.fabs(Offset)))
+
+'''
+purpose
+	given an integer Index or character Index a left shift
+	of Offset is computed
+preconditions
+	Index: Character [A-Z] or integer [0-25]
+	Offset: positive or negative integer
+'''
+def leftShift(Index, Offset):
+	return shift(Index, int((-math.fabs(Offset))))
+
+
 
 
 '''
@@ -11,7 +53,7 @@ preconditions
 def caeser_encrypt(P,K):
 	C = ""
 	for p in P:
-		C += alpha[((alpha.index(p) + K) % 26)]
+		C += rightShift(p,K)
 	return C
 '''
 purpose
@@ -23,7 +65,7 @@ preconditions
 def caeser_decrypt(C,K):
 	P = ""
 	for c in C:
-		P += alpha[(alpha.index(c) - K) % 26]
+		P += leftShift(c,K)
 	return P
 
 # --------------------------------------------------------------
@@ -65,7 +107,7 @@ preconditions
 def vernam_encrypt(P,K):
 	C = ""
 	for i in range(0,len(P)):
-		C += alpha[(alpha.index(P[i]) + K[i % len(K)]) % 26]
+		C += rightShift(P[i], K[i % len(K)])
 	return C
 
 '''
@@ -79,7 +121,7 @@ preconditions
 def vernam_decrypt(C,K):
 	P = ""
 	for i in range(0, len(C)):
-		P += alpha[(alpha.index(C[i]) - K[i % len(K)]) % 26]
+		P += leftShift(C[i], K[i % len(K)])
 	return P
 # --------------------------------------------------------------
 
@@ -87,6 +129,7 @@ def vernam_decrypt(C,K):
 purpose
 	encrypt P using book cipher with key K
 	if len(P) > len(K) then repeat the key as needed
+	converts Book Key into Vernam Key and calls vernam_encrypt
 preconditions
 	P: string of A..Z
 	K: non-empty string of A..Z
@@ -100,6 +143,7 @@ def book_encrypt(P,K):
 purpose
 	decrypt C using book cipher with key K
 	if len(C) > len(K) then repeat the key as needed
+	converts Book Key into Vernam Key and calls vernam_decrypt 
 preconditions
 	C: string of A..Z
 	K: non-empty string of A..Z
