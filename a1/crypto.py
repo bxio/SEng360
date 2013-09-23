@@ -184,7 +184,41 @@ preconditions
 	K > 1
 '''
 def columnar_decrypt(C,K):
-	return "NOT IMPLEMENTED"
+	P = ""
+	extra = len(C) % K
+
+	if extra == 0:
+		colHeight = len(C)/K
+	else:
+		colHeight = (len(C)/K)+1
+		
+	cols  = [[] for _ in range(K)]
+	col = 0
+
+	for i in range(len(C)):
+	#	print col
+		cols[col].append(C[i])
+		colHeight -= 1;
+		if colHeight == 0:
+			extra -= 1
+			if extra > 0:
+				colHeight = (len(C)/K)+1	
+			else: 
+				colHeight = len(C)/K
+			col = (col + 1) % K
+
+	#print cols
+	for y in range(len(cols[0])):
+		for x in range(K):
+			if(y < len(cols[x])):
+				P += cols[x][y]
+
+	return P
+
+
+
+
+
 
 # --------------------------------------------------------------
 
@@ -304,8 +338,8 @@ test_cipher("Book",v_string,v_key,book_encrypt,book_decrypt)
 Columnar
 '''
 
-col_key = 3
-col_string = "HEYYOU"
+col_key = 4
+col_string = "HELLOWORLD"
 test_cipher("Columnar",col_string,col_key,columnar_encrypt,columnar_decrypt)
 
 '''
