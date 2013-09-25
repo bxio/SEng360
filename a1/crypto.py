@@ -50,7 +50,7 @@ preconditions
 	P: string of A..Z
 	K in 0..25
 '''
-def caeser_encrypt(P,K):
+def caesar_encrypt(P,K):
 	C = ""
 	for p in P:
 		C += rightShift(p,K)
@@ -62,7 +62,7 @@ preconditions
 	C: string of A..Z
 	K in 0..25
 '''
-def caeser_decrypt(C,K):
+def caesar_decrypt(C,K):
 	P = ""
 	for c in C:
 		P += leftShift(c,K)
@@ -268,7 +268,7 @@ def count_letters(S):
 '''
 purpose
 	return a dictionary D where
-		D.keys contains all of the digrams in S
+		D.keys() contains all of the digrams in S
 		D[d] is the number of occurrences of digram d in S
 preconditions
 	S is a string of A..Z
@@ -303,12 +303,12 @@ def test_cipher(NAME, PLAINTEXT, KEY, ENCRYPT, DECRYPT):
 
 
 '''
-Ceaser
+Caesar
 '''
 
 c_key = 4
 c_string = "HEY"
-test_cipher("Ceaser",c_string,c_key,caeser_encrypt,caeser_decrypt)
+test_cipher("Caesar",c_string,c_key,caesar_encrypt,caesar_decrypt)
 
 '''
 Substitution
@@ -355,8 +355,9 @@ Digram
 
 d_string = "BEBEBE"
 print "Testing digram with string: " + d_string
-print count_digrams(d_string)
-
+D = count_digrams(d_string)
+print D.keys()
+print D
 
 
 
