@@ -1,3 +1,5 @@
+#!usr/bin/python
+
 import math
 
 alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -372,7 +374,7 @@ def bruteForce(C):
 	print "\nFINSIHED Columnar: \n"
 
 
-bruteForce(columnar_encrypt("HELLOWORLD",4))
+#bruteForce(columnar_encrypt("HELLOWORLD",4))
 #test_all()
 
 
