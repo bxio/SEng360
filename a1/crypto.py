@@ -1,4 +1,11 @@
-#!usr/bin/python
+#!/usr/bin/env python
+
+'''
+Assignment 1
+SEng 360 Fall 2013
+Alastair Fehr - 
+Bill Xiong - V00737042
+'''
 
 import math
 
@@ -301,10 +308,7 @@ def test_cipher(NAME, PLAINTEXT, KEY, ENCRYPT, DECRYPT):
 	#assert PLAINTEXT == decrypted, "Plaintext does not match decrypted text!!!"
 	print ""
 
-
-
 def test_all():
-
 	'''
 	Caesar
 	'''
@@ -376,7 +380,4 @@ def bruteForce(C):
 
 #bruteForce(columnar_encrypt("HELLOWORLD",4))
 #test_all()
-
-
-
-
+#REMOVE TEST CASES BEFORE SUBMISSION
