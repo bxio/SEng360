@@ -41,8 +41,6 @@ def leftShift(Index, Offset):
 	return shift(Index, int((-math.fabs(Offset))))
 
 
-
-
 '''
 purpose
 	encrypt P using Caesar cipher with key K
@@ -302,62 +300,80 @@ def test_cipher(NAME, PLAINTEXT, KEY, ENCRYPT, DECRYPT):
 	print ""
 
 
-'''
-Caesar
-'''
 
-c_key = 4
-c_string = "HEY"
-test_cipher("Caesar",c_string,c_key,caesar_encrypt,caesar_decrypt)
+def test_all():
 
-'''
-Substitution
-'''
+	'''
+	Caesar
+	'''
 
-s_key = "POIUYTREWQASDFGHJKLMNBVCXZ"
-s_string = "FNGJE"
-test_cipher("Substitution",s_string,s_key,substitution_encrypt,substitution_decrypt)
+	c_key = 4
+	c_string = "HEY"
+	test_cipher("Caesar",c_string,c_key,caesar_encrypt,caesar_decrypt)
 
-'''
-Vernam
-'''
-print 'STILL NEED TO TEST WRAP AROUND FOR VERNAM AND BOOK'
-v_key = [59,61,1,4,36,25]
-v_string = "WIDVHY"
-test_cipher("Vernam",v_string,v_key,vernam_encrypt,vernam_decrypt)
+	'''
+	Substitution
+	'''
 
-'''
-Book
-'''
+	s_key = "POIUYTREWQASDFGHJKLMNBVCXZ"
+	s_string = "FNGJE"
+	test_cipher("Substitution",s_string,s_key,substitution_encrypt,substitution_decrypt)
 
-v_key = "KIDPYNG"
-v_string = "PICFEHT"
-test_cipher("Book",v_string,v_key,book_encrypt,book_decrypt)
+	'''
+	Vernam
+	'''
+	print 'STILL NEED TO TEST WRAP AROUND FOR VERNAM AND BOOK'
+	v_key = [59,61,1,4,36,25]
+	v_string = "WIDVHY"
+	test_cipher("Vernam",v_string,v_key,vernam_encrypt,vernam_decrypt)
 
-'''
-Columnar
-'''
+	'''
+	Book
+	'''
 
-col_key = 4
-col_string = "HELLOWORLD"
-test_cipher("Columnar",col_string,col_key,columnar_encrypt,columnar_decrypt)
+	v_key = "KIDPYNG"
+	v_string = "PICFEHT"
+	test_cipher("Book",v_string,v_key,book_encrypt,book_decrypt)
 
-'''
-RSA
-'''
+	'''
+	Columnar
+	'''
 
-# NEED examples to test
-print "RSA, need some examples to test first \n"
+	col_key = 4
+	col_string = "HELLOWORLD"
+	test_cipher("Columnar",col_string,col_key,columnar_encrypt,columnar_decrypt)
 
-'''
-Digram
-'''
+	'''
+	RSA
+	'''
 
-d_string = "BEBEBE"
-print "Testing digram with string: " + d_string
-D = count_digrams(d_string)
-print D.keys()
-print D
+	# NEED examples to test
+	print "RSA, need some examples to test first \n"
+
+	'''
+	Digram
+	'''
+
+	d_string = "BEBEBE"
+	print "Testing digram with string: " + d_string
+	D = count_digrams(d_string)
+	print D.keys()
+	print D
+
+def bruteForce(C):
+	print "BRUTE FORCE CAESAR: \n"
+	for i in range(0,26):
+		print caesar_decrypt(C,i)
+	print "\nFINSIHED CAESAR: \n"
+
+	print "BRUTE FORCE Columnar: \n"
+	for i in range(1,26):
+		print columnar_decrypt(C,i)
+	print "\nFINSIHED Columnar: \n"
+
+
+bruteForce(columnar_encrypt("HELLOWORLD",4))
+#test_all()
 
 
 
