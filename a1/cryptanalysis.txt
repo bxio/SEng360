@@ -1,0 +1,47 @@
+LDECLYRPRLXPESPZYWJHTYYTYRXZGPTDYZEEZAWLJ
+ASTRANGEGAMETHEONLYWINNINGMOVEISNOTTOPLAY
+A STRANGE GAME, THE ONLY WINNING MOVE IS NOT TO PLAY (nice quote from WarGames)
+Caesar, key = 11
+
+We wrote a function to bruteforce the ciphertext (see crypto.py), using all available keys in both Caesar and Columnar ciphers. A simple glance tells you which one is in English and which ones are random letters.
+
+bruteforce("LDECLYRPRLXPESPZYWJHTYYTYRXZGPTDYZEEZAWLJ")
+
+
+
+
+
+
+
+
+
+
+
+
+
+ASYYHNEUSLMLSEOFULDSNBSMREAOEAWLTLEAWTTYCLETCLSSOBNTRMODISLSENIOAEMEHOO
+AROSEBYANYOTHERNAMEWOULDSTILLSMELLASSWEETNOTIFYOUCALLEDEMSTENCHBLOSSOMS
+A ROSE BY ANY OTHER NAME WOULD STILL SMELL AS SWEET, NOT IF YOU CALLED'EM STENCH BLOSSOMS
+Columnar
+
+We ran bruteforce("ASYYHNEUSLMLSEOFULDSNBSMREAOEAWLTLEAWTTYCLETCLSSOBNTRMODISLSENIOAEMEHOO")
+
+
+
+
+
+
+
+
+
+
+
+
+VCMNNOTPRETENDTOZEELVAPMRTVMLMXOUTTHECOLOURS
+ICANNOTPRETENDTOFEELIMPARTIALABOUTTHECOLOURS
+I CANNOT PRETEND TO FEEL IMPARTIAL ABOUT THE COLOURS
+
+Substitution Cipher
+
+There were enough hints in the ciphertext sentence that we could solve it by inspection.
+We guessed that V mapped to I, since the next word was likely Cannot. M maps to A, and pretty soon the plaintext was there.
