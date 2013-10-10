@@ -1,0 +1,6 @@
+1) What was the result of running example with 33 A's?
+2) Why did the seg fault happen when passing in 41 characters? In other words, what got overwritten?
+3) What is the row and column for the data for auth_flag?
+4) Do you notice anything odd about the order in which auth_flag and password_buffer appears in code and how it is laid out in memory?
+5) Why does the password_buffer display "" when the entire first line is the buffer and data exists in 3 of the blocks displayed?
+6) What do you think is more useful in finding problems and exploiting them: source code or disassembled code? Why?
