@@ -1,6 +1,24 @@
 1) What was the result of running example with 33 A's?
+
+When you run ./example with 33 A's, The program grants access and then promptly seg faults. With 31 A's acccess is granted without a seg fault occuring.
+
 2) Why did the seg fault happen when passing in 41 characters? In other words, what got overwritten?
+The seg fault is triggered by hardware when you attempt to access memory outside of the bounds of your program. When you try to run the program with more than 33 A's, you end up trying to overwrite memory outside the range that is allocated to your program
+
 3) What is the row and column for the data for auth_flag?
+0x7fffffffe00c, or row 2 column 4, when you run ./example with 33 A's
+
 4) Do you notice anything odd about the order in which auth_flag and password_buffer appears in code and how it is laid out in memory?
+
+The memory is laid out in reverse order. Auth_flag's value in memory is located after the password_buffer value, because auth_flag was declared before password_buffer. This makes the code susceptible to a buffer overflow attack, since it is now possible to run the program in such a way to overwrite exactly the value of the auth_flag. When the declarations of auth_value and password_buffer is reversed, the buffer overflow attack is no longer possible.
+
 5) Why does the password_buffer display "" when the entire first line is the buffer and data exists in 3 of the blocks displayed?
+
+GBD likely displays the char array as a string and stops printing when it encounters the first
+byte which it interprets it as the null terminator.
+
 6) What do you think is more useful in finding problems and exploiting them: source code or disassembled code? Why?
+
+I think there are advantages and disadvantages to each. Source code is preferable because if you can find an exploit in the source code, you can use it on any machine the code is run on, whereas exploiting the disassembled code will only run on that specific machine.
+
+It is easier to find exploits in disassembled code because you can see the addresses allocated to everything.
