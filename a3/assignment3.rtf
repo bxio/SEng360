@@ -1,0 +1,90 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\info
+{\author Daniel Hoffman}}\margl1134\margr1134\margb1134\margt1134\vieww10800\viewh8400\viewkind0
+\deftab709
+\pard\pardeftab709
+
+\f0\fs24 \cf0 CQG Risk Assessment\
+\
+A1 \'96  Injection\
+\
+A2 \'96  Broken Authentication and Session Management\
+\
+
+\b Vulnerability
+\b0 : The last actions that a user took on a page before the submit button is kept in the URL of the site. It reveals the button and the answers the user just submitted. This by itself does not have that big of an impact on security, after all, the user obviously already know the answers he or she just put in and the field names are not a secret - one simply has to view the source of the page to find out. If this specific URL was shared, however, an adversary could potentially complete a quiz without knowing the answers at all.\
+\
+
+\b Threat
+\b0 : If the adversary collects all of the URLs following each question before he or she submits the quiz, the adversary is able to share them with other adversaries, who would be able to visit the URLs one after another to essentially \'93clone\'94 the answer of the first adversary. This allows other adversaries to get the same grade as the adversary who first contributed the URLs without having to study for the quiz at all.\
+\
+
+\b Control
+\b0 : We can change the flow that the student takes through the quiz so that the previous answers are not revealed in the URL when the student visits a previous question. \
+\
+A3 \'96  Cross-Site Scripting (XSS)\
+\
+A4 \'96  Insecure Direct Object References\
+\
+
+\b Vulnerability
+\b0 : TODO\
+\
+
+\b Threat
+\b0 :\
+\
+
+\b Control
+\b0 :\
+\
+A5 \'96  Security Misconfiguration\
+\
+A6 \'96  Sensitive Data Exposure\
+\
+
+\b Vulnerability
+\b0 : Stuff here.\
+\
+
+\b Threat
+\b0 :\
+\
+
+\b Control
+\b0 :\
+\
+A7 \'96  Missing Function Level Access Control\
+\
+A8 \'96  Cross-Site Request Forgery (CSRF)\
+\
+
+\b Vulnerability
+\b0 : As demonstrated in the Lab, unauthorized and untrusted JavaScript can be run from the URL in the quiz while the quiz server is running.\
+\
+
+\b Threat
+\b0 : The adversary could utilize the site to run untrusted JavaScript injected from his own machine at quiz runtime.\
+\
+
+\b Control
+\b0 : OWASP suggests using an unique token every time the site is accessed. Due to the nature of the system, a token of this nature should already exist - after all, the server is capable of maintaining multiple quizzes running at once and thus must differentiate one session from another session. This token can serve as the unique token sent along with each request. \
+\
+A9 \'96  Using Known Vulnerable Components\
+\
+A10 \'96  Unvalidated Redirects and Forwards\
+\
+
+\b Vulnerability
+\b0 : Being a quiz application, there is not a lot of forwards and redirects, except to the next or previous question. An adversary could take advantage of JavaScript and inject code to make a quiz redirect to another site, but such a change would be user-specific and would affect no one else\'92s code. \
+\
+
+\b Threat
+\b0 :\
+\
+
+\b Control
+\b0 :\
+}
